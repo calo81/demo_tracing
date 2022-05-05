@@ -1,0 +1,22 @@
+spring:
+  sleuth:
+    function:
+      enabled: true
+    messaging:
+      kafka:
+        streams:
+          enabled: true
+  cloud:
+    stream:
+      bindings:
+        consumeAndProduce-in-0:
+          destination: topicToConsumeFrom
+        consumeAndProduce-out-0:
+          destination: topicToProduceTo
+      kafka:
+        binder:
+          brokers: localhost:9092
+      default:
+        group: service_1
+    function:
+      definition: consumeAndProduce
